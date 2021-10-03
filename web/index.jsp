@@ -9,10 +9,41 @@
 <html>
   <head>
     <title>$Title$</title>
+    <link rel="stylesheet" href="index.css">
   </head>
-  <body>
-  <form>
-    <button type="submit">Submit</button>
-  </form>
+
+  <div class="options">
+    <div class="mainOptions">
+      <input type="text" id="title" placeholder="Job Title"><br>
+      <input type="text" id="location" placeholder="Job Location">
+    </div>
+  </div>
+
+  <div class="gridContainer">
+    <div>
+      <h1>Haha</h1>
+    </div>
+    <div>
+      <h1>Another one</h1>
+    </div>
+    <div>
+      <h1>Haha</h1>
+    </div>
+    <div>
+      <h1>Another one</h1>
+    </div>
+    <div>
+      <h1>Haha</h1>
+    </div>
+    <div>
+      <h1>Another one</h1>
+    </div>
+    <div>
+      <h1>Haha</h1>
+    </div>
+    <div>
+      <h1>Another one</h1>
+    </div>
+  </div>
   </body>
 </html>

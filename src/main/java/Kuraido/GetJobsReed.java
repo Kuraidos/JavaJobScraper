@@ -13,22 +13,23 @@ import org.jsoup.select.Elements;
 public class GetJobsReed implements GetJobs
 {
     private Document document=null;
-    List<Job> Jobs= new ArrayList<>();
+    List<Job> jobs= new ArrayList<>();
     String url ="https://www.reed.co.uk/jobs/";
     int page=1;
 
     public List<Job> getJobs(String title, String location)
     {
         setUpUrl(title,location);
-        getPage();
-        return null;
+        getJobsFromPage();
+        return jobs;
     }
 
     @Override
     public List<Job> getJobs(String title) {
         setUpUrl(title,"");
-        getPage();
-        return null;
+        System.out.println(url);
+        getJobsFromPage();
+        return jobs;
     }
 
     private void setUpUrl(String title, String location)
@@ -97,10 +98,11 @@ public class GetJobsReed implements GetJobs
 
     private void getJobsFromPage()
     {
+        getPage();
         Elements jobsFromPage = document.getElementsByClass("job-result");
         for (Element jobElement:jobsFromPage)
         {
-            Jobs.add(setJobData(jobElement));
+            jobs.add(setJobData(jobElement));
         }
         if(hasNextPage())
         {
@@ -162,13 +164,5 @@ public class GetJobsReed implements GetJobs
         Elements linkValues = titleValues.get(0).getElementsByTag("a");
         String result = "https://www.reed.co.uk/"+linkValues.get(0).attr("href").toString();
         return result;
-    }
-    public void test()
-    {
-        setUpUrl("Java Developer","NewCastle");
-        System.out.println(url);
-        getPage();
-        getJobsFromPage();
-        System.out.println(Jobs.size());
     }
 }
